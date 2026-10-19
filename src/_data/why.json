@@ -1,0 +1,34 @@
+{
+  "credential": {
+    "label": "Formally Qualified",
+    "text": "B.S. Applied Business Management",
+    "title": "BYU-Idaho, United States",
+    "description": "Via BYU-Pathway Worldwide — covering financial analysis, bookkeeping, strategic management, business planning, sales, and marketing. A US-accredited degree, applied right here in Masaka."
+  },
+  "stats": [
+    { "icon": "shield", "number": "100%", "label": "Confidential" },
+    { "icon": "globe", "number": "Local", "label": "Based in Masaka" },
+    { "icon": "dollar", "number": "50%+", "label": "Below Kampala rates" },
+    { "icon": "chat", "number": "Plain", "label": "Language — no jargon" }
+  ],
+  "eyebrow": "Why Choose Zenith",
+  "heading": "Professional quality. Masaka prices.",
+  "points": [
+    {
+      "title": "Locally based — I come to you",
+      "text": "Based in Masaka City. No Kampala travel, no waiting weeks for a response. WhatsApp or call and I respond the same day. I visit your business premises."
+    },
+    {
+      "title": "Priced for Masaka businesses",
+      "text": "A Kampala accountant charges UGX 400,000–600,000 per month for basic bookkeeping. Zenith Tier 1 starts at UGX 150,000. Same professional quality, half the price."
+    },
+    {
+      "title": "Plain language. No jargon.",
+      "text": "Every report is explained in plain language. You will always understand your own numbers — not just receive a document you cannot read."
+    },
+    {
+      "title": "Your information is private. Always.",
+      "text": "Every client signs a confidentiality agreement. Your financial records are never shared with anyone — not other clients, not third parties, not anyone."
+    }
+  ]
+}

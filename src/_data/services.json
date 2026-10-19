@@ -1,0 +1,61 @@
+{
+  "eyebrow": "Services & Pricing",
+  "heading": "Three tiers. One trusted advisor.",
+  "intro": "Choose the service that fits where your business is right now. You can upgrade at any time — no penalty, no pressure.",
+  "items": [
+    {
+      "tier": "Tier 1",
+      "title": "Basic Bookkeeping",
+      "shortTitle": "Bookkeeping",
+      "subtitle": "Monthly retainer — ideal for market traders, shops & salons",
+      "price": "150,000",
+      "frequency": "per month",
+      "featured": false,
+      "badge": "",
+      "features": [
+        "Weekly income & expense recording",
+        "Monthly financial summary report",
+        "Simple cash flow summary",
+        "One review session per month",
+        "WhatsApp support for questions"
+      ],
+      "button": "Get Started"
+    },
+    {
+      "tier": "Tier 2",
+      "title": "Business Health Check",
+      "shortTitle": "Health Check",
+      "subtitle": "Monthly retainer — for established businesses ready to grow",
+      "price": "300,000",
+      "frequency": "per month",
+      "featured": true,
+      "badge": "Most Popular",
+      "features": [
+        "Everything in Tier 1, plus:",
+        "Monthly business health report",
+        "Revenue trends & cost analysis",
+        "Cost leakage identification",
+        "Quarterly strategic review session"
+      ],
+      "button": "Get Started"
+    },
+    {
+      "tier": "Tier 3",
+      "title": "Business Plan & Loan Readiness",
+      "shortTitle": "Business Plan",
+      "subtitle": "One-off engagement — for businesses applying for a bank or SACCO loan",
+      "price": "500,000",
+      "frequency": "per engagement (one-off)",
+      "featured": false,
+      "badge": "",
+      "features": [
+        "Full business plan document",
+        "3-year financial projections model",
+        "Collateral summary schedule",
+        "Loan application guidance",
+        "One revision included"
+      ],
+      "button": "Get Started"
+    }
+  ]
+}

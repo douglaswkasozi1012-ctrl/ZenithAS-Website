@@ -1,0 +1,105 @@
+{% from "macros.njk" import waIcon %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ site.seoTitle }}</title>
+<meta name="description" content="{{ site.metaDescription }}">
+<link rel="canonical" href="{{ site.url | cleanUrl }}/">
+{% if site.googleVerification %}<meta name="google-site-verification" content="{{ site.googleVerification }}">
+{% endif %}<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ site.name }} — {{ site.location }}">
+<meta property="og:description" content="{{ site.ogDescription }}">
+<meta property="og:url" content="{{ site.url | cleanUrl }}/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B1C3D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">{{ site | schemaJson | safe }}</script>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="nb">
+  <div class="nb-inner">
+    <a href="#hero" class="nb-logo">{{ site.shortName }}<span class="nb-logo-dot">·</span></a>
+    <div class="nb-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nb-right">
+      <a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I found ' + site.name + ' and would like to learn more.') }}" class="btn btn-gold" target="_blank" rel="noopener">
+        {{ waIcon() }}
+        WhatsApp Us
+      </a>
+      <button class="nb-mob" id="mobBtn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:22px;height:22px;display:block"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDraw">
+  <a href="#services">Services &amp; Pricing</a>
+  <a href="#why">Why {{ site.shortName }}</a>
+  <a href="#process">How It Works</a>
+  {% if testimonials.show and testimonials.items.length %}<a href="#testimonials">Testimonials</a>
+  {% endif %}<a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <div class="mob-ctas">
+    <a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I would like to book a free consultation.') }}" class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+      {{ waIcon(18) }}
+      WhatsApp Now
+    </a>
+    <a href="mailto:{{ site.email }}" class="btn btn-ghost-w btn-lg">Send Email</a>
+  </div>
+</div>
+
+{{ content | safe }}
+
+<!-- FOOTER -->
+<footer>
+  <div class="c">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-brand-name">{{ site.shortName }}<span> {{ site.name | replace(site.shortName + ' ', '') }}</span></div>
+        <p>{{ site.footerBlurb }}</p>
+        <div class="ft-tagline">{{ site.tagline }}</div>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        {% for s in services.items %}<a href="#services">{{ s.tier }} — {{ s.shortTitle }}</a>
+        {% endfor %}
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/{{ site.whatsappNumber }}" target="_blank" rel="noopener">WhatsApp: {{ site.phoneDisplay }}</a>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="#contact">{{ site.location }}</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; {{ build.year }} {{ site.name }}. All rights reserved.</p>
+      <p><a href="#why">{{ site.footerCredential }}</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I found ' + site.name + ' and would like to learn more.') }}" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <div class="wa-fab-tip">Chat with us</div>
+  {{ waIcon() }}
+</a>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

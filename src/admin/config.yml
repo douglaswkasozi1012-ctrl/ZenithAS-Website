@@ -1,0 +1,251 @@
+# Admin panel settings (Decap CMS).
+# ONE-TIME EDIT: replace YOUR-GITHUB-USERNAME below with your real GitHub username.
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/zenith-website
+  branch: main
+
+media_folder: src/images
+public_folder: /images
+
+collections:
+  - name: website
+    label: "Website content"
+    editor:
+      preview: false
+    files:
+
+      # ---------------------------------------------------------------
+      - name: site
+        label: "1. Business details & contact info"
+        file: src/_data/site.json
+        format: json
+        fields:
+          - {label: "Business name", name: name, widget: string}
+          - {label: "Short name (shown in the top-left logo and footer)", name: shortName, widget: string}
+          - {label: "Website address", name: url, widget: string, hint: "Your live address with no slash at the end, e.g. https://zenithadvisory.co.ug. Google uses this, so keep it correct. Change it when you add your own domain."}
+          - {label: "Google verification code", name: googleVerification, widget: string, required: false, hint: "Only needed when Google Search Console gives you an HTML tag. Paste just the code from content=\"...\". Otherwise leave empty."}
+          - {label: "Your first name (used in WhatsApp messages)", name: ownerName, widget: string}
+          - {label: "Phone number (as shown on the site)", name: phoneDisplay, widget: string}
+          - {label: "WhatsApp number (digits only, with country code)", name: whatsappNumber, widget: string, hint: "Example: 256701976330. No plus sign, spaces or dashes."}
+          - {label: "Email address", name: email, widget: string}
+          - {label: "Location (as shown on the site)", name: location, widget: string}
+          - {label: "Town / city (for Google)", name: city, widget: string}
+          - {label: "Working hours", name: hours, widget: string}
+          - {label: "Currency", name: currency, widget: string, hint: "Shown before every price, e.g. UGX"}
+          - {label: "Footer tagline", name: tagline, widget: string}
+          - {label: "Footer description", name: footerBlurb, widget: text}
+          - {label: "Footer qualification line", name: footerCredential, widget: string}
+          - {label: "Google search title", name: seoTitle, widget: string, hint: "The blue clickable title in Google results. Aim for under 65 characters."}
+          - {label: "Google search description", name: metaDescription, widget: text, hint: "The grey text under the title in Google results. Aim for under 160 characters."}
+          - {label: "Link-preview description", name: ogDescription, widget: text, hint: "Shown when someone shares your link on WhatsApp or Facebook."}
+          - label: "Social media links"
+            name: social
+            widget: list
+            required: false
+            hint: "Full links to your Facebook, LinkedIn, Google Business Profile etc. Helps Google connect them to your site."
+            field: {label: "Link", name: link, widget: string}
+
+      # ---------------------------------------------------------------
+      - name: hero
+        label: "2. Top banner (hero)"
+        file: src/_data/hero.json
+        format: json
+        fields:
+          - {label: "Small label above the heading", name: pill, widget: string}
+          - {label: "Heading, line 1", name: line1, widget: string}
+          - {label: "Heading, line 2 (shown in gold italics)", name: emphasis, widget: string}
+          - {label: "Heading, line 3", name: line3, widget: string}
+          - {label: "Intro paragraph", name: lead, widget: text}
+          - {label: "Main button text", name: primaryButton, widget: string}
+          - {label: "Second button text", name: secondaryButton, widget: string}
+          - label: "Numbers strip"
+            name: stats
+            widget: list
+            summary: "{{fields.number}} — {{fields.label}}"
+            fields:
+              - {label: "Big number or word", name: number, widget: string}
+              - {label: "Label", name: label, widget: string}
+          - label: "Scrolling gold band (keywords)"
+            name: marquee
+            widget: list
+            field: {label: "Keyword", name: keyword, widget: string}
+
+      # ---------------------------------------------------------------
+      - name: problem
+        label: "3. The problem section"
+        file: src/_data/problem.json
+        format: json
+        fields:
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - {label: "Intro paragraph", name: lead, widget: text}
+          - {label: "Quote", name: quote, widget: text, hint: "Quotation marks are added for you."}
+          - {label: "Paragraph under the quote", name: body, widget: text}
+          - label: "Problem cards"
+            name: cards
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Icon"
+                name: icon
+                widget: select
+                options:
+                  - {label: "Records", value: records}
+                  - {label: "Bank card", value: card}
+                  - {label: "Alert", value: alert}
+                  - {label: "Pulse", value: pulse}
+                  - {label: "Shield", value: shield}
+                  - {label: "Globe", value: globe}
+                  - {label: "Money", value: dollar}
+                  - {label: "Chat", value: chat}
+                  - {label: "People", value: users}
+                  - {label: "Chart", value: chart}
+                  - {label: "Clock", value: clock}
+                  - {label: "Tick", value: tick}
+              - {label: "Title", name: title, widget: string}
+              - {label: "Text", name: text, widget: text}
+
+      # ---------------------------------------------------------------
+      - name: services
+        label: "4. Services & prices"
+        file: src/_data/services.json
+        format: json
+        fields:
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - {label: "Intro paragraph", name: intro, widget: text}
+          - label: "Services (add, remove or drag to reorder)"
+            name: items
+            widget: list
+            summary: "{{fields.tier}} — {{fields.title}} ({{fields.price}})"
+            fields:
+              - {label: "Tier label", name: tier, widget: string, hint: "e.g. Tier 1"}
+              - {label: "Service name", name: title, widget: string}
+              - {label: "Short name (used in the footer)", name: shortTitle, widget: string}
+              - {label: "Description line", name: subtitle, widget: string, required: false}
+              - {label: "Price", name: price, widget: string, hint: "Just the number as you want it shown, e.g. 150,000. The currency is added for you."}
+              - {label: "Price note", name: frequency, widget: string, hint: "e.g. per month"}
+              - {label: "Highlight this card (dark card with a badge)", name: featured, widget: boolean, default: false, required: false}
+              - {label: "Badge text (only shown on highlighted card)", name: badge, widget: string, required: false}
+              - label: "What's included"
+                name: features
+                widget: list
+                field: {label: "Item", name: item, widget: string}
+              - {label: "Button text", name: button, widget: string, default: "Get Started"}
+
+      # ---------------------------------------------------------------
+      - name: why
+        label: "5. Why choose us"
+        file: src/_data/why.json
+        format: json
+        fields:
+          - label: "Qualification box"
+            name: credential
+            widget: object
+            fields:
+              - {label: "Small badge title", name: label, widget: string}
+              - {label: "Badge text", name: text, widget: string}
+              - {label: "Heading", name: title, widget: string}
+              - {label: "Paragraph", name: description, widget: text}
+          - label: "Four small boxes"
+            name: stats
+            widget: list
+            summary: "{{fields.number}} — {{fields.label}}"
+            fields:
+              - label: "Icon"
+                name: icon
+                widget: select
+                options:
+                  - {label: "Shield", value: shield}
+                  - {label: "Globe", value: globe}
+                  - {label: "Money", value: dollar}
+                  - {label: "Chat", value: chat}
+                  - {label: "People", value: users}
+                  - {label: "Chart", value: chart}
+                  - {label: "Clock", value: clock}
+                  - {label: "Records", value: records}
+                  - {label: "Bank card", value: card}
+                  - {label: "Alert", value: alert}
+                  - {label: "Pulse", value: pulse}
+                  - {label: "Tick", value: tick}
+              - {label: "Big number or word", name: number, widget: string}
+              - {label: "Label", name: label, widget: string}
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - label: "Reasons (numbered automatically)"
+            name: points
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: title, widget: string}
+              - {label: "Text", name: text, widget: text}
+
+      # ---------------------------------------------------------------
+      - name: steps
+        label: "6. How it works"
+        file: src/_data/steps.json
+        format: json
+        fields:
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - label: "Steps (numbered automatically)"
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: title, widget: string}
+              - {label: "Text", name: text, widget: text}
+
+      # ---------------------------------------------------------------
+      - name: testimonials
+        label: "7. Client testimonials"
+        file: src/_data/testimonials.json
+        format: json
+        fields:
+          - {label: "Show this section on the website", name: show, widget: boolean, default: false, hint: "Leave OFF until you have real testimonials from real clients who agreed to be quoted."}
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - {label: "Sentence under the heading", name: subheading, widget: string}
+          - label: "Testimonials"
+            name: items
+            widget: list
+            required: false
+            summary: "{{fields.name}} — {{fields.business}}"
+            fields:
+              - {label: "What the client said", name: quote, widget: text, hint: "Quotation marks are added for you."}
+              - {label: "Client name", name: name, widget: string}
+              - {label: "Their business", name: business, widget: string}
+
+      # ---------------------------------------------------------------
+      - name: faq
+        label: "8. Frequently asked questions"
+        file: src/_data/faq.json
+        format: json
+        fields:
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - {label: "Sentence under the heading", name: subheading, widget: string}
+          - label: "Questions (add, remove or drag to reorder)"
+            name: items
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - {label: "Question", name: question, widget: string}
+              - {label: "Answer", name: answer, widget: text}
+
+      # ---------------------------------------------------------------
+      - name: contact
+        label: "9. Contact section & form"
+        file: src/_data/contact.json
+        format: json
+        fields:
+          - {label: "Small label", name: eyebrow, widget: string}
+          - {label: "Heading", name: heading, widget: string}
+          - {label: "Intro paragraph", name: lead, widget: text}
+          - {label: "Form heading", name: formTitle, widget: string}
+          - {label: "Sentence under the form heading", name: formIntro, widget: string}
+          - {label: "Last choice in the service drop-down", name: unsureOption, widget: string}
+          - {label: "Thank-you heading (after sending)", name: successTitle, widget: string}
+          - {label: "Thank-you text", name: successText, widget: string}

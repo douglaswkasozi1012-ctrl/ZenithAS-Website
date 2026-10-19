@@ -1,0 +1,278 @@
+---
+layout: base.njk
+permalink: /index.html
+---
+{% from "macros.njk" import waIcon, icon, check, star %}
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="c">
+    <div class="hero-content">
+      <div class="hero-pill">
+        <div class="hero-pill-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        {{ hero.pill }}
+      </div>
+      <h1 class="hero-h1">
+        {{ hero.line1 }}<br>
+        <em>{{ hero.emphasis }}</em><br>
+        {{ hero.line3 }}
+      </h1>
+      <p class="hero-lead">{{ hero.lead }}</p>
+      <div class="hero-btns">
+        <a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I would like to book a free consultation with ' + site.name + '.') }}" class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+          {{ waIcon() }}
+          {{ hero.primaryButton }}
+        </a>
+        <a href="#services" class="btn btn-ghost-w btn-lg">{{ hero.secondaryButton }}</a>
+      </div>
+      <div class="hero-stats">
+        {% for s in hero.stats %}
+        <div class="h-stat">
+          <span class="h-stat-n">{{ s.number }}</span>
+          <span class="h-stat-l">{{ s.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    {% for pass in [1, 2] %}{% for m in hero.marquee %}
+    <span class="marquee-item">{{ m }} <span class="marquee-sep"></span></span>
+    {% endfor %}{% endfor %}
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="c">
+    <div class="problem-wrap">
+      <div class="reveal">
+        <span class="eyebrow">{{ problem.eyebrow }}</span>
+        <h2 style="color:var(--n0);margin-bottom:1.2rem">{{ problem.heading }}</h2>
+        <p class="lead">{{ problem.lead }}</p>
+        <blockquote class="problem-quote">"{{ problem.quote }}"</blockquote>
+        <p>{{ problem.body }}</p>
+      </div>
+      <div class="problem-cards reveal reveal-d2">
+        {% for c in problem.cards %}
+        <div class="p-card">
+          <div class="p-card-icon">{{ icon(c.icon) }}</div>
+          <div><h4>{{ c.title }}</h4><p>{{ c.text }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="c">
+    <div class="services-hdr reveal">
+      <span class="eyebrow">{{ services.eyebrow }}</span>
+      <h2 style="color:var(--n0);margin-bottom:1rem">{{ services.heading }}</h2>
+      <p>{{ services.intro }}</p>
+    </div>
+    <div class="srv-grid">
+      {% for s in services.items %}
+      <div class="srv-card{% if s.featured %} featured{% endif %} reveal reveal-d{{ loop.index if loop.index < 5 else 4 }}">
+        {% if s.featured and s.badge %}<div class="srv-popular">{{ s.badge }}</div>{% endif %}
+        <div class="srv-card-inner">
+          <span class="srv-tier">{{ s.tier }}</span>
+          <h3>{{ s.title }}</h3>
+          {% if s.subtitle %}<p class="srv-sub">{{ s.subtitle }}</p>{% endif %}
+          <div class="srv-divider"></div>
+          <div class="srv-price">
+            <div class="srv-price-n"><span class="srv-price-curr">{{ site.currency }}</span> {{ s.price }}</div>
+            <div class="srv-price-freq">{{ s.frequency }}</div>
+          </div>
+          <ul class="srv-features">
+            {% for f in s.features %}<li><span class="srv-check">{{ check() }}</span>{{ f }}</li>
+            {% endfor %}
+          </ul>
+          <a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I am interested in ' + s.tier + ' ' + s.title + '. I would like to know more.') }}" class="btn {% if s.featured %}btn-gold{% else %}btn-navy{% endif %}" target="_blank" rel="noopener">{{ s.button or 'Get Started' }}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="c">
+    <div class="why-wrap">
+      <div class="why-left reveal">
+        <div class="why-credential">
+          <div class="wc-inner">
+            <div class="wc-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <div>
+                <span class="wc-badge-t">{{ why.credential.label }}</span>
+                <span class="wc-badge-d">{{ why.credential.text }}</span>
+              </div>
+            </div>
+            <h3>{{ why.credential.title }}</h3>
+            <p style="margin-top:.5rem">{{ why.credential.description }}</p>
+          </div>
+        </div>
+        <div class="why-float-cards">
+          {% for s in why.stats %}
+          <div class="wfc">
+            <div class="wfc-icon">{{ icon(s.icon) }}</div>
+            <div class="wfc-n">{{ s.number }}</div>
+            <div class="wfc-l">{{ s.label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="why-points reveal reveal-d2">
+        <span class="eyebrow" style="margin-bottom:1.4rem">{{ why.eyebrow }}</span>
+        <h2 style="color:var(--n0);margin-bottom:32px">{{ why.heading }}</h2>
+        {% for p in why.points %}
+        <div class="why-pt">
+          <div class="why-pt-num">{{ loop.index }}</div>
+          <div><h4>{{ p.title }}</h4><p>{{ p.text }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="c">
+    <div class="process-hdr reveal">
+      <span class="eyebrow">{{ steps.eyebrow }}</span>
+      <h2 style="color:var(--n0);margin-bottom:1rem">{{ steps.heading }}</h2>
+    </div>
+    <div class="process-track">
+      {% for st in steps.items %}
+      <div class="ps reveal reveal-d{{ loop.index if loop.index < 5 else 4 }}">
+        <div class="ps-num">{{ loop.index }}</div>
+        <h4>{{ st.title }}</h4>
+        <p>{{ st.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if testimonials.show and testimonials.items.length %}
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="c">
+    <div class="tst-hdr reveal">
+      <span class="eyebrow">{{ testimonials.eyebrow }}</span>
+      <h2>{{ testimonials.heading }}</h2>
+      <p>{{ testimonials.subheading }}</p>
+    </div>
+    <div class="tst-grid">
+      {% for t in testimonials.items %}
+      <div class="tst-card reveal reveal-d{{ loop.index if loop.index < 5 else 4 }}">
+        <div class="tst-stars">{% for i in [1,2,3,4,5] %}{{ star() }}{% endfor %}</div>
+        <p class="tst-quote">"{{ t.quote }}"</p>
+        <div class="tst-author">
+          <div class="tst-av">{{ t.name | initials }}</div>
+          <div><div class="tst-name">{{ t.name }}</div><div class="tst-biz">{{ t.business }}</div></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="c">
+    <div class="faq-hdr reveal">
+      <span class="eyebrow">{{ faq.eyebrow }}</span>
+      <h2 style="color:var(--n0)">{{ faq.heading }}</h2>
+      <p style="max-width:480px;margin:0 auto;color:var(--t2)">{{ faq.subheading }}</p>
+    </div>
+    <div class="faq-cols reveal reveal-d1">
+      {% for q in faq.items %}
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><span>{{ q.question }}</span><div class="faq-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+        <div class="faq-a"><p>{{ q.answer }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="c">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <span class="eyebrow">{{ contact.eyebrow }}</span>
+        <h2 style="color:var(--n0);margin-bottom:1rem">{{ contact.heading }}</h2>
+        <p class="lead" style="margin-bottom:2rem">{{ contact.lead }}</p>
+        <div class="c-items">
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="c-item-l">Phone / WhatsApp</div><div class="c-item-v">{{ site.phoneDisplay }}</div></div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="c-item-l">Email</div><div class="c-item-v">{{ site.email }}</div></div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="c-item-l">Location</div><div class="c-item-v">{{ site.location }}</div></div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="c-item-l">Working Hours</div><div class="c-item-v">{{ site.hours }}</div></div>
+          </div>
+        </div>
+        <a href="{{ site.whatsappNumber | waUrl('Hello ' + site.ownerName + ', I would like to book a free consultation with ' + site.name + '.') }}" class="btn btn-wa btn-lg" target="_blank" rel="noopener">
+          {{ waIcon() }}
+          Message on WhatsApp
+        </a>
+      </div>
+      <div class="form-box reveal reveal-d2">
+        <h3>{{ contact.formTitle }}</h3>
+        <p>{{ contact.formIntro }}</p>
+        <form id="cForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="fg-2">
+            <div class="fg"><label for="f-name">Your Name</label><input id="f-name" type="text" name="name" placeholder="Full name" required></div>
+            <div class="fg"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" type="tel" name="phone" placeholder="+256 ..."></div>
+          </div>
+          <div class="fg"><label for="f-email">Email Address</label><input id="f-email" type="email" name="email" placeholder="your@email.com"></div>
+          <div class="fg">
+            <label for="f-service">Service Interested In</label>
+            <select id="f-service" name="service">
+              <option value="">Select a service...</option>
+              {% for s in services.items %}<option>{{ s.tier }} — {{ s.title }}</option>
+              {% endfor %}<option>{{ contact.unsureOption }}</option>
+            </select>
+          </div>
+          <div class="fg"><label for="f-msg">Tell me about your business</label><textarea id="f-msg" name="msg" placeholder="What type of business do you have? What is your biggest financial challenge right now?"></textarea></div>
+          <button type="submit" class="btn btn-navy btn-lg form-submit">Send Message</button>
+        </form>
+        <div class="f-error" id="fErr">Sorry, that did not go through. Please check your connection and try again, or message {{ site.ownerName }} on WhatsApp at {{ site.phoneDisplay }}.</div>
+        <div class="f-success" id="fSucc">
+          <div class="f-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h4>{{ contact.successTitle }}</h4>
+          <p>{{ contact.successText }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

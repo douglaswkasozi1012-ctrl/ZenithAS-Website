@@ -1,0 +1,31 @@
+{
+  "eyebrow": "FAQ",
+  "heading": "Common questions",
+  "subheading": "What Masaka business owners typically want to know before signing up.",
+  "items": [
+    {
+      "question": "Do I need a big or formal business to use this service?",
+      "answer": "Not at all. Zenith is built specifically for small and micro businesses — market stalls, shops, salons, contractors, traders. You do not need to be registered or have any existing records. We start from wherever you are."
+    },
+    {
+      "question": "Is my financial information kept private?",
+      "answer": "Absolutely. Every client signs a confidentiality agreement before sharing anything. Your records are never discussed with or shared with any other client, partner, or third party — ever."
+    },
+    {
+      "question": "What records do I need to provide?",
+      "answer": "For Tier 1 and 2, simply provide whatever you have — physical receipts, a sales book, mobile money screenshots, phone notes. We work with what you have and build proper records from there."
+    },
+    {
+      "question": "Can I cancel the retainer at any time?",
+      "answer": "Yes. Either party can end the retainer with 30 days written notice. No long-term lock-in required. Month-to-month arrangements are available if you prefer flexibility at the start."
+    },
+    {
+      "question": "How do I pay? Do you accept mobile money?",
+      "answer": "Yes — MTN Mobile Money, Airtel Money, and cash are all accepted. Retainer fees are due by the 5th of each month. A receipt is always issued. No bank account required on your side."
+    },
+    {
+      "question": "Will the reports actually help my business grow?",
+      "answer": "The reports are designed to be acted on, not filed away. Every report includes specific recommendations. Clients who follow them consistently spend less on waste, price more accurately, and build the records needed to access credit."
+    }
+  ]
+}

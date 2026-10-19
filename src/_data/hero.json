@@ -1,0 +1,25 @@
+{
+  "pill": "Masaka City, Uganda — Serving Local Businesses",
+  "line1": "Clarity for your",
+  "emphasis": "business.",
+  "line3": "Confidence to grow.",
+  "lead": "Professional bookkeeping, business advisory, and loan-readiness services for small businesses in Masaka. Qualified. Local. Affordable. Confidential.",
+  "primaryButton": "Book Free Consultation",
+  "secondaryButton": "View Services & Pricing",
+  "stats": [
+    { "number": "3", "label": "Service Tiers" },
+    { "number": "150K", "label": "UGX Starting Monthly" },
+    { "number": "B.S.", "label": "Applied Business Mgmt — BYU-Idaho" },
+    { "number": "100%", "label": "Confidential — Always" }
+  ],
+  "marquee": [
+    "Bookkeeping",
+    "Business Advisory",
+    "Business Plans",
+    "Loan Readiness",
+    "Financial Reports",
+    "Masaka City, Uganda",
+    "Affordable Rates",
+    "BYU-Idaho Qualified"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "eyebrow": "The Problem",
+  "heading": "Your business is earning. But do you actually know how much?",
+  "lead": "Most businesses in Masaka are busy every day — but without proper records, you cannot know your real profit, you cannot access a bank loan, and you cannot plan for growth.",
+  "quote": "I was busy every single day. But at the end of the month, I couldn't tell you if I made a profit.",
+  "body": "This is not laziness. It is an access problem. Professional financial management has always been too expensive, too far away, and too complicated for small business owners in Masaka. Zenith Advisory Services changes that.",
+  "cards": [
+    {
+      "icon": "records",
+      "title": "No financial records",
+      "text": "Without records, you cannot know your profit, your costs, or where your money disappears every month."
+    },
+    {
+      "icon": "card",
+      "title": "Rejected by banks and SACCOs",
+      "text": "Lenders require financial statements and a business plan. Without them, you cannot access credit to grow."
+    },
+    {
+      "icon": "alert",
+      "title": "No qualified local advisor",
+      "text": "Professional accountants are in Kampala, expensive, and not built for small business owners. There is no accessible local option."
+    },
+    {
+      "icon": "pulse",
+      "title": "Money leaking without knowing",
+      "text": "Rising costs, unpaid debts, stock losses — the damage is real but invisible until it is too late."
+    }
+  ]
+}
