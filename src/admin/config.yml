@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/zenith-website
+  repo: Douglas@Zenith/zenith-website
   branch: main
 
 media_folder: src/images
